@@ -7,6 +7,7 @@ updater - changes element on request
 
 function sendform(asin){
     var parameters = $('#' + asin).serialize();
+    console.log('asin: ' + asin);
     
     $('#add-'+asin).disable().val('Adding...'); 
     $('#response').innerHTML = t.responseText;
