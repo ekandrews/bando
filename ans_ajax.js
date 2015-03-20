@@ -7,10 +7,13 @@ updater - changes element on request
 
 function sendform(asin){
     var parameters = $(asin).serialize();
+    
+    $('#add-'+asin).disable().val('Adding...'); 
+    $('#response').innerHTML = t.responseText;
+            
     var opt = {
         method:'post', 
-        /*onLoading: function() { $('add-'+asin).disable().value = 'Adding...'; $('response').innerHTML = t.responseText; },
-        onSuccess: function(t) { $('add-'+asin).enable().value = 'Add to Cart'; $('response-'+asin).innerHTML = t.responseText; }*/
+        success: function(t) { $('#add-'+asin).enable().val('Add to Cart'); $('#response-'+asin).innerHTML = t.responseText; }
         }
 
     $.ajax('cart.php?' + parameters, opt);
