@@ -6,7 +6,7 @@ updater - changes element on request
 /* Add to Cart */
 
 function sendform(asin){
-    var parameters = $(asin).serialize();
+    var parameters = $('#' + asin).serialize();
     
     $('#add-'+asin).disable().val('Adding...'); 
     $('#response').innerHTML = t.responseText;
