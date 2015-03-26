@@ -14,7 +14,7 @@ function sendform(asin){
             
     var opt = {
         method:'post', 
-        success: function(t) { $('#add-'+asin).prop('disabled', false).val('Add to Cart'); $('#response-'+asin).html(t); }
+        success: function(t) { $('#add-'+asin).prop('disabled', false).val('Add to Cart'); $('#response-'+asin).html('Item added to cart'); }
         }
 
     $.ajax('cart.php?' + parameters, opt);
