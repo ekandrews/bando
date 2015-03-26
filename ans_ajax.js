@@ -9,12 +9,12 @@ function sendform(asin){
     var parameters = $('#' + asin).serialize();
     console.log('asin: ' + asin);
     
-    $('#add-'+asin).disable().val('Adding...'); 
-    $('#response').innerHTML = t.responseText;
+    $('#add-'+asin).prop('disabled', true).val('Adding...'); 
+   // $('#response-' + asin).innerHTML = t.responseText;
             
     var opt = {
         method:'post', 
-        success: function(t) { $('#add-'+asin).enable().val('Add to Cart'); $('#response-'+asin).innerHTML = t.responseText; }
+        success: function(t) { $('#add-'+asin).prop('disabled', false).val('Add to Cart'); $('#response-'+asin).innerHTML = t.responseText; }
         }
 
     $.ajax('cart.php?' + parameters, opt);
